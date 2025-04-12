@@ -10,7 +10,9 @@ doc = """
 Implicit Association Test, draft. 
 """
 
-#comentario random
+#comentario random.
+# estoy haciendo cambios.
+
 
 class Constants(BaseConstants):
     name_in_url = 'iat'
