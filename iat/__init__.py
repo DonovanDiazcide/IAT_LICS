@@ -10,6 +10,8 @@ doc = """
 Implicit Association Test, draft. 
 """
 
+#comentario random
+
 class Constants(BaseConstants):
     name_in_url = 'iat'
     players_per_group = None
