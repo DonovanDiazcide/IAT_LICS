@@ -6,10 +6,10 @@ from . import stimuli
 from . import blocks
 from . import stats
 
-
 doc = """
-Implicit Association Test, draft
+Implicit Association Test, draft. 
 """
+
 class Constants(BaseConstants):
     name_in_url = 'iat'
     players_per_group = None
@@ -28,15 +28,13 @@ class Subsession(BaseSubsession):
     secondary_left = models.StringField()
     secondary_right = models.StringField()
 
-
 def get_block_for_round(rnd, params):
     """Get a round setup from BLOCKS with actual categories' names substituted from session config
-    The `rnd`: Player or Subsession
+    The `rnd`: Player or Subsession.
     """
     block = blocks.BLOCKS[rnd]
     result = blocks.configure(block, params)
     return result
-
 
 def thumbnails_for_block(block, params):
     """Return image urls for each category in block.
@@ -75,7 +73,7 @@ def get_num_iterations_for_round(rnd):
     num = rnd.session.params['num_iterations'][idx]
     return num
 
-def creating_session(subsession):
+def creating_session(subsession: Subsession):
     session = subsession.session
 
     # Configuración por defecto
@@ -131,7 +129,6 @@ def creating_session(subsession):
 
     # Imprimir la ronda actual para depuración
     print(f"Ronda actual: {subsession.round_number}, actual_round: {actual_round}")
-
 
 class Group(BaseGroup):
     pass
@@ -529,7 +526,7 @@ def play_game(player: Player, message: dict):
         }
     raise RuntimeError("unrecognized message from client")
 
-# PAGES.
+# PAGES. cambiecito.
 class Intro(Page):
     @staticmethod
     def is_displayed(player):
@@ -599,7 +596,6 @@ class PreguntaM(Page):
         # Validar que el campo moral_question no esté vacío
         if not values.get('moral_question'):
             return "Por favor, responde la pregunta antes de continuar."
-
 
 class RoundN(Page):
     template_name = "iat/Main.html"
@@ -845,6 +841,8 @@ class AsignacionDinero(Page):
     def before_next_page(player: Player, timeout_happened):
         # Marcar que la página ya fue completada
         player.participant.vars['asignacionesDinero_completada'] = True
+
+
 
 
 page_sequence = [Intro, UserInfo, PreguntaM, RoundN, FeedbackIAT, Results, AsignacionDinero]
