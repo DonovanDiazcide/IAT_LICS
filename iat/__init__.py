@@ -12,7 +12,7 @@ Implicit Association Test, draft.
 
 #comentario random.
 # estoy haciendo cambios.
-
+## cambios de José Miguel
 
 class Constants(BaseConstants):
     name_in_url = 'iat'
